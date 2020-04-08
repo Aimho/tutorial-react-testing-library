@@ -22,62 +22,22 @@ react-testing-library 기반인 [dom-testing-library](https://testing-library.co
 
 #### Variant
 
-##### getBy
-
 - `getBy*`로 시작하는 쿼리는 조건에 일치하는 DOM element 하나를 선택함 (없으면 에러 발생)
-
-##### getAllBy
-
 - `getAllBy*`로 시작하는 쿼리는 조건에 일치하는 DOM element 여러개를 선택함 (하나도 없으면 에러 발생)
-
-##### queryBy
-
 - `queryBy*`로 시작하는 쿼리는 조건에 일치하는 DOM 엘리먼트 하나를 선택함
-
-##### queryAllBy
-
 - `queryAllBy*`로 시작하는 쿼리는 조건에 일치하는 DOM element 여러개를 선택함
-
-##### findBy
-
 - `findBy*`로 시작하는 쿼리는 조건에 일치하는 DOM 엘리먼트 하나가 나타날 때 까지 기다렸다가 해당 DOM을 선택하는 Promise를 반환함 (기본 timeout인 4500ms 이후에도 나타나지 않으면 에러 발생)
-
-##### findAllBy
-
 - `findAllBy*`로 시작하는 쿼리는 조건에 일치하는 DOM 엘리먼트 여러개가 나타날 때 까지 기다렸다가 해당 DOM을 선택하는 Promise를 반환함 (기본 timeout인 4500ms 이후에도 나타나지 않으면 에러 발생)
 
 #### Queries
 
-##### ByLabelText
-
 - `ByLabelText`는 label 이 있는 input 의 label 내용으로 input 을 선택함
-
-##### ByPlaceholderText
-
 - `ByPlaceholderText`는 placeholder 값으로 input 및 textarea 를 선택함
-
-##### ByText
-
 - `ByText`는 element가 가지고 있는 텍스트 값으로 DOM 을 선택함 (참고로, 텍스트 값에 정규식을 넣어도 작동합)
-
-##### ByAltText
-
 - `ByAltText`는 alt 속성을 가지고 있는 element(주로 img) 를 선택함
-
-##### ByTitle
-
 - `ByTitle`은 title 속성을 가지고 있는 DOM 혹은 title element를 가지고 있는 SVG 를 선택할 때 사용함
-
-##### ByDisplayValue
-
 - `ByDisplayValue`는 input, textarea, select 가 가지고 있는 현재 값을 가지고 element를 선택함
-
-##### ByRole
-
 - `ByRole`은 특정 role 값을 지니고 있는 element를 선택함
-
-##### ByTestId
-
 - `ByTestId`는 다른 방법으로 못선택할 때, 특정 DOM에 직접 test 할 때 사용할 id를 달아서 선택함
 
 ```
@@ -88,7 +48,7 @@ react-testing-library 기반인 [dom-testing-library](https://testing-library.co
 
 ### 쿼리 우선 순위
 
-메뉴얼에서는 다음 우선순위를 따라서 사용하는것을 권장하고 있음
+메뉴얼에서는 다음 우선순위를 따라서 사용하는것을 권장하고 있음<br/>
 그리고 DOM의 `querySelector`는 지양하고 `data-testid`를 설정해 사용하는 것을 권장함
 
 1. getByLabelText
