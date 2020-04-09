@@ -29,10 +29,20 @@ const TodoApp = () => {
     [mock]
   );
 
+  const onToggle = useCallback(
+    (id) =>
+      setMock(
+        mock.map((todo) =>
+          todo.id === id ? { ...todo, done: !todo.done } : todo
+        )
+      ),
+    [mock]
+  );
+
   return (
     <Fragment>
       <TodoForm data-testid="hello world" onInsert={onInsert} />
-      <TodoList todos={mock} />
+      <TodoList todos={mock} onToggle={onToggle} />
     </Fragment>
   );
 };
