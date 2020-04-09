@@ -1,3 +1,7 @@
+/**
+ * TDD Todo item
+ */
+
 import React, { useCallback } from "react";
 
 const TodoItem = ({ todo, onToggle, onRemove }) => {
