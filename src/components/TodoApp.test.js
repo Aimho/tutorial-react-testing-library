@@ -38,4 +38,12 @@ describe("<TodoApp />", () => {
 
     expect(todoText).toHaveStyle("text-decoration: line-through;");
   });
+
+  it("removes todo", () => {
+    const todoText = getByText("TDD 배우기");
+    const removeBtn = todoText.nextSibling;
+    fireEvent.click(removeBtn);
+    // toBeInTheDocument: 특정 element가 document에 있는지 확인해주는 함수
+    expect(todoText).not.toBeInTheDocument();
+  });
 });

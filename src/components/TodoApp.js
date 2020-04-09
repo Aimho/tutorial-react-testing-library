@@ -39,10 +39,15 @@ const TodoApp = () => {
     [mock]
   );
 
+  const onRemove = useCallback(
+    (id) => setMock(mock.filter((todo) => todo.id !== id)),
+    [mock]
+  );
+
   return (
     <Fragment>
       <TodoForm data-testid="hello world" onInsert={onInsert} />
-      <TodoList todos={mock} onToggle={onToggle} />
+      <TodoList todos={mock} onToggle={onToggle} onRemove={onRemove} />
     </Fragment>
   );
 };
