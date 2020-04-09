@@ -7,13 +7,20 @@ describe("<TodoFrom />", () => {
   // 이 함수가 호출된 다음 toBeCalled or toBeCalledWith 같은 matcher를 사용해 함수가 호출됐는지,
   // 호출 됐다면 어떤 파라미터로 호출 됐는지 등을 쉽게 알 수 있음
   const onInsert = jest.fn();
-  const { getByText, getByPlaceholderText } = render(
+  const { container, getByText, getByPlaceholderText } = render(
     <TodoForm onInsert={onInsert} />
   );
 
   // check input and btn
   const input = getByPlaceholderText("할 일을 입력하세요");
   const btn = getByText("등록");
+
+  it("matches snapshot", () => expect(container).toMatchSnapshot());
+
+  it("has input and a btn", () => {
+    expect(input).toBeTruthy();
+    expect(btn).toBeTruthy();
+  });
 
   it("changes input", () => {
     fireEvent.change(input, {
