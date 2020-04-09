@@ -61,8 +61,7 @@ const commonDiv = getByTestId('commonDiv);
 
 ### 비동기적으로 바뀌는 Component UI Test
 
-[Async Utilities](https://testing-library.com/docs/dom-testing-library/api-async)를 사용하여 테스트할 수 있음 <br />
-Async Utilities 에는 총 4가지 함수가 있음
+[Async Utilities](https://testing-library.com/docs/dom-testing-library/api-async)를 사용하여 테스트할 수 있음
 
 **참고**
 최신버전 CRA Issue있음(jest-environment-jsdom-sixteen 적용해야함)
