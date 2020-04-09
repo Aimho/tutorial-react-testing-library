@@ -41,9 +41,8 @@ react-testing-library 기반인 [dom-testing-library](https://testing-library.co
 - `ByTestId`는 다른 방법으로 못선택할 때, 특정 DOM에 직접 test 할 때 사용할 id를 달아서 선택함
 
 ```
-  <div data-testid="commonDiv">흔한 div</div>
-
-  const commonDiv = getByTestId('commonDiv)
+<div data-testid="commonDiv">흔한 div</div>
+const commonDiv = getByTestId('commonDiv);
 ```
 
 ### 쿼리 우선 순위
@@ -59,3 +58,30 @@ react-testing-library 기반인 [dom-testing-library](https://testing-library.co
 6. getByTitle
 7. getByRole
 8. getByTestId
+
+### 비동기적으로 바뀌는 Component UI Test
+
+[Async Utilities](https://testing-library.com/docs/dom-testing-library/api-async)를 사용하여 테스트할 수 있음 <br />
+Async Utilities 에는 총 4가지 함수가 있음
+
+**참고**
+최신버전 CRA Issue있음(jest-environment-jsdom-sixteen 적용해야함)
+
+```
+yarn add jest-environment-jsdom-sixteen --dev
+
+---
+
+"scripts": {
+   ...
+   "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+   ...
+}
+```
+
+- `waitFor`: 함수는 콜백 안의 함수가 에러를 발생시키지 않을 때 까지 기다리다가, 대기시간이 timeout을 초과하게 되면 테스트케이스가 실패함 <br />
+  timeout 의 기본값은 4500ms 이며, 이는 다음과 같이 커스터마이징 할 수 있음
+
+```
+await waitFor(() => getByText('onToggle!!'), { timeout: 3000 })
+```
